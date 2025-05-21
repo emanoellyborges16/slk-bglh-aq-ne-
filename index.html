@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garagem Inteligente Avançada</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Garagem Inteligente <span class="beta-tag">JS Edition</span></h1>
+            <p class="subtitle">Controle e Informação na Palma da Sua Mão!</p>
+        </div>
+    </header>
+
+    <main class="site-main container">
+        <section id="garage-feature-wrapper" class="garage-feature card">
+            <h2>Controle da Garagem e Veículo</h2>
+            <div class="garage-layout">
+                <div class="garage-car-display">
+                    <div id="car-image-container" class="car-image-wrapper">
+                        <img src="images/bmw_m4_placeholder.png" alt="BMW M4 na garagem" id="carImage" />
+                        <div id="carLightsOverlay" class="car-lights-overlay"></div>
+                        <div id="engineStatusIndicator" class="engine-status-indicator">
+                            <span class="indicator-dot"></span>
+                            <span class="indicator-text">Motor Desligado</span>
+                        </div>
+                    </div>
+                    <div id="garage-status-panel" class="status-panel">
+                        <h3>Status Atual:</h3>
+                        <p id="statusGarageDoor">Porta da Garagem: <span class="status-value">Fechada</span></p>
+                        <p id="statusCarLights">Luzes do Carro: <span class="status-value">Apagadas</span></p>
+                        <p id="statusCarEngine">Motor do Carro: <span class="status-value">Desligado</span></p>
+                    </div>
+                </div>
+                <div class="garage-controls-panel">
+                    <h3>Ações Remotas:</h3>
+                    <button id="btnToggleGarage" class="button">Abrir Garagem</button>
+                    <button id="btnToggleLights" class="button button-secondary" disabled>Ligar Luzes do Carro</button>
+                    <button id="btnToggleEngine" class="button button-secondary" disabled>Ligar Motor</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Seção de Revisão do Carro -->
+    <section id="car-revision-wrapper" class="car-revision card">
+        <h2>Revisão do Carro</h2>
+        <div class="revision-form">
+            <label for="revisionDate">Data da Próxima Revisão:</label>
+            <input type="date" id="revisionDate" name="revisionDate" />
+        </div>
+        <div class="revision-form">
+            <label for="revisionNotes">Notas:</label>
+            <textarea id="revisionNotes" name="revisionNotes" rows="3" placeholder="Observações adicionais..."></textarea>
+        </div>
+        <button id="btnSaveRevision" class="button">Salvar Revisão</button>
+        <div id="revisionDisplay" class="revision-display" aria-live="polite" style="margin-top: 1em; font-weight: bold;">
+            Nenhuma revisão marcada.
+        </div>
+        <div class="revision-payment" style="margin-top: 1.5em;">
+            <p>Preço da Revisão: <strong id="revisionPrice">R$ 350,00</strong></p>
+            <button id="btnConfirmPayment" class="button button-secondary">Confirmar Pagamento</button>
+            <p id="paymentStatus" style="margin-top: 0.5em; font-weight: bold; color: var(--cor-sucesso); display: none;">Pagamento Confirmado!</p>
+        </div>
+    </section>
+
+    <!-- Seção de Previsão do Tempo -->
+    <section id="weather-forecast-wrapper" class="weather-forecast card">
+        <h2>Previsão do Tempo</h2>
+        <div class="weather-form">
+            <label for="weatherCity">Cidade:</label>
+            <input type="text" id="weatherCity" name="weatherCity" placeholder="Ex: Curitiba" />
+        </div>
+        <div class="weather-form">
+            <label for="weatherDate">Data:</label>
+            <input type="date" id="weatherDate" name="weatherDate" />
+        </div>
+        <div class="weather-form">
+            <label for="weatherTime">Hora:</label>
+            <input type="time" id="weatherTime" name="weatherTime" />
+        </div>
+        <button id="btnFetchWeather" class="button">Buscar Previsão</button>
+        <div id="weatherError" class="error-message" style="color: var(--cor-erro); margin-top: 1em;"></div>
+        <div id="weatherResult" class="weather-result" style="margin-top: 1em; font-weight: bold;"></div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> Garagem Inteligente JS Edition. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

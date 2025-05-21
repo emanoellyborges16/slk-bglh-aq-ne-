@@ -1,0 +1,208 @@
+/* --- Controles Interativos --- */
+#weather-feature-wrapper .weather-controls-container {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--cor-borda, #dce4ec); /* Linha divisória, usando fallback */
+}
+
+#weather-feature-wrapper .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+#weather-feature-wrapper .control-group {
+    padding: 1.25em; /* Aumentado padding */
+    background-color: var(--cor-fundo, #f4f6f8);
+    border-radius: var(--raio-borda-padrao, 8px);
+    box-shadow: var(--sombra-leve, 0 2px 5px rgba(0,0,0,0.05));
+    border: 1px solid var(--cor-borda, #dce4ec);
+}
+
+#weather-feature-wrapper .control-group > label, /* Label de select/button */
+#weather-feature-wrapper .control-group .group-label { /* Label <p> para checkboxes */
+    display: block;
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 0.8em;
+    color: var(--cor-primaria, #2c3e50);
+    font-size: 0.95rem;
+}
+
+#weather-feature-wrapper .control-group select#filtroDiasPrevisao {
+    width: 100%;
+    /* Herda estilos do .input-group select do style.css */
+}
+
+#weather-feature-wrapper .control-group button#unidadeToggleBtnPrevisao.button.button-secondary {
+    width: 100%;
+    /* Herda .button e .button-secondary do style.css */
+}
+
+#weather-feature-wrapper .checkbox-option {
+    margin-bottom: 0.6em;
+    display: flex;
+    align-items: center;
+}
+#weather-feature-wrapper .checkbox-option input[type="checkbox"] {
+    margin-right: 0.6em;
+    accent-color: var(--cor-secundaria, #3498db);
+    width: 18px; /* Tamanho explícito */
+    height: 18px;
+    cursor: pointer;
+}
+#weather-feature-wrapper .checkbox-option label {
+    font-weight: normal;
+    margin-bottom: 0;
+    color: var(--cor-texto-principal, #34495e);
+    font-size: 0.95em; /* Um pouco maior */
+    cursor: pointer;
+    flex-grow: 1; /* Para o label ocupar o espaço e o clique funcionar melhor */
+}
+
+
+/* --- Resultados da Previsão --- */
+#weather-feature-wrapper .weather-results-container {
+    margin-top: 2rem; /* Mais espaço antes dos resultados */
+}
+#weather-feature-wrapper .weather-current-section,
+#weather-feature-wrapper .weather-forecast-section {
+    margin-bottom: 2rem;
+}
+#weather-feature-wrapper .placeholder-text {
+    color: var(--cor-texto-secundario, #7f8c8d);
+    font-style: italic;
+    text-align: center;
+    padding: 1.5rem 0; /* Mais padding vertical */
+    font-size: 1rem;
+}
+
+/* Card de Clima Atual */
+#weather-feature-wrapper .current-weather-card {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--cor-surface, #ffffff); /* Fundo branco para o card atual */
+    border-radius: var(--raio-borda-padrao, 8px);
+    box-shadow: var(--sombra-media, 0 4px 10px rgba(0,0,0,0.1)); /* Sombra mais pronunciada */
+    border: 1px solid var(--cor-borda, #dce4ec);
+}
+#weather-feature-wrapper .current-weather-card img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 0.75em;
+}
+#weather-feature-wrapper .current-weather-card p {
+    margin-bottom: 0.6em;
+    font-size: 1.1em;
+}
+#weather-feature-wrapper .current-weather-card strong {
+    color: var(--cor-primaria, #2c3e50);
+}
+
+/* Grid para Previsão Futura */
+#weather-feature-wrapper .forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); /* Ajustado minmax */
+    gap: 1rem;
+}
+
+/* Estilo base para os cards de previsão diária na .forecast-grid */
+#weather-feature-wrapper .forecast-grid .weather-card {
+    background-color: var(--cor-surface, #ffffff);
+    padding: 1em;
+    border-radius: var(--raio-borda-padrao, 8px);
+    text-align: center;
+    box-shadow: var(--sombra-leve, 0 2px 5px rgba(0,0,0,0.05));
+    border: 1px solid var(--cor-borda, #dce4ec);
+    transition: var(--transicao-padrao);
+}
+#weather-feature-wrapper .forecast-grid .weather-card:hover {
+    transform: translateY(-4px) scale(1.03); /* Efeito de hover mais pronunciado */
+    box-shadow: var(--sombra-media, 0 4px 10px rgba(0,0,0,0.1));
+}
+#weather-feature-wrapper .forecast-grid .weather-card h4 {
+    font-size: 1.05em;
+    color: var(--cor-primaria, #2c3e50);
+    margin: 0 0 0.5em;
+    font-weight: 500;
+}
+#weather-feature-wrapper .forecast-grid .weather-card img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.3em;
+}
+#weather-feature-wrapper .forecast-grid .weather-card p {
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+    color: var(--cor-texto-principal, #34495e);
+}
+#weather-feature-wrapper .forecast-grid .weather-card p.alerta-chuva {
+    font-weight: bold;
+    color: var(--cor-secundaria, #3498db);
+    margin-top: 0.5em;
+    font-size: 0.85em;
+}
+
+
+/* --- Estilos de Destaque para Previsão (cores diretas para garantir) --- */
+#weather-feature-wrapper .forecast-grid .weather-card.dia-chuvoso {
+    background-color: #E0F7FA !important; /* Ciano muito claro */
+    border-left: 5px solid #00BCD4 !important; /* Ciano */
+}
+#weather-feature-wrapper .forecast-grid .weather-card.dia-chuvoso h4,
+#weather-feature-wrapper .forecast-grid .weather-card.dia-chuvoso p {
+    color: #00796B !important; /* Verde Azulado Escuro */
+}
+
+#weather-feature-wrapper .forecast-grid .weather-card.temp-baixa {
+    background-color: #E3F2FD !important; /* Azul bebê */
+    border-left: 5px solid #2196F3 !important; /* Azul */
+}
+#weather-feature-wrapper .forecast-grid .weather-card.temp-baixa h4,
+#weather-feature-wrapper .forecast-grid .weather-card.temp-baixa p {
+    color: #0D47A1 !important; /* Azul Escuro */
+}
+
+#weather-feature-wrapper .forecast-grid .weather-card.temp-alta {
+    background-color: #FFF3E0 !important; /* Laranja muito claro */
+    border-left: 5px solid #FF9800 !important; /* Laranja */
+}
+#weather-feature-wrapper .forecast-grid .weather-card.temp-alta h4,
+#weather-feature-wrapper .forecast-grid .weather-card.temp-alta p {
+    color: #E65100 !important; /* Laranja Escuro */
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    #weather-feature-wrapper .controls-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+@media (max-width: 600px) {
+    #weather-feature-wrapper .forecast-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 0.75rem;
+    }
+    #weather-feature-wrapper .forecast-grid .weather-card {
+        padding: 0.75em;
+    }
+    #weather-feature-wrapper .forecast-grid .weather-card h4 {
+        font-size: 0.95em;
+    }
+    #weather-feature-wrapper .forecast-grid .weather-card p {
+        font-size: 0.85em;
+    }
+    #weather-feature-wrapper .controls-grid {
+        grid-template-columns: 1fr; /* Controles empilhados */
+    }
+    #weather-feature-wrapper .current-weather-card {
+        padding: 1.25rem;
+    }
+    #weather-feature-wrapper .current-weather-card img {
+        width: 65px;
+        height: 65px;
+    }
+    #weather-feature-wrapper .control-group > label,
+    #weather-feature-wrapper .control-group .group-label {
+        font-size: 1rem;
+    }
+}
