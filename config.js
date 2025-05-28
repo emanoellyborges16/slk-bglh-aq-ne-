@@ -6,7 +6,7 @@
 
 // --- Configurações da API OpenWeatherMap ---
 // IMPORTANTE: Substitua 'SUA_CHAVE_API_AQUI' pela sua chave real.
-export const API_KEY_WEATHER = 'SUA_CHAVE_API_AQUI'; // <<== COLOQUE SUA CHAVE AQUI!!!
+export const API_KEY_WEATHER = '52a34a24ea6a5f3d54f7dea9b93eb015'; // <<== CHAVE ATUALIZADA
 
 export const WEATHER_API_URLS = {
     GEO: 'https://api.openweathermap.org/geo/1.0/direct',
